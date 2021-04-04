@@ -9,6 +9,6 @@ class Nationalitie extends Model
 {
     use HasTranslations;
     public $translatable = ['Name'];
-    protected $fillable =['Name'];
+    protected $fillable = ['Name'];
     //protected $guarded =[];
 }

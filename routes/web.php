@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Classrooms\ClassroomController;
+use App\Models\Classroom;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use PhpParser\Builder\Class_;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +46,14 @@ Route::group(
         // //==============================Classrooms============================
         Route::group(['namespace' => 'Classrooms'], function () {
             Route::resource('Classrooms', 'ClassroomController');
+            Route::post('delete_all', 'ClassroomController@delete_all')->name('delete_all');
+            Route::post('Filter_Classes', 'ClassroomController@Filter_Classes')->name('Filter_Classes');
+        });
+
+        // //=============================Sections============================
+        Route::group(['namespace' => 'Sections'], function () {
+            Route::resource('Sections', 'SectionController');
+            Route::get('/classes/{id}', 'SectionController@getClasses');
         });
     }
 );

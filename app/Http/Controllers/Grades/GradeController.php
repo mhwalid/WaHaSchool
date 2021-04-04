@@ -93,12 +93,10 @@ class GradeController extends Controller
     $MyClass_id = Classroom::where('Grade_id', $request->id)->pluck('Grade_id');
 
     if ($MyClass_id->count() == 0) {
-
       $Grades = Grade::findOrFail($request->id)->delete();
       toastr()->error(trans('messages.Delete'));
       return redirect()->route('Grades.index');
     } else {
-
       toastr()->error(trans('Grades_trans.delete_Grade_Error'));
       return redirect()->route('Grades.index');
     }

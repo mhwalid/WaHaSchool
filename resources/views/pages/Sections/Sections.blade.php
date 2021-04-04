@@ -98,7 +98,7 @@
                                                                     </tr>
 
 
-                                                                    <!--تعديل قسم جديد -->
+                                                                    <!--Edit section  -->
                                                                     <div class="modal fade"
                                                                          id="edit{{ $list_Sections->id }}"
                                                                          tabindex="-1" role="dialog"
@@ -129,9 +129,9 @@
                                                                                         <div class="row">
                                                                                             <div class="col">
                                                                                                 <input type="text"
-                                                                                                       name="Name_Section_Ar"
+                                                                                                       name="Name_Section_Fr"
                                                                                                        class="form-control"
-                                                                                                       value="{{ $list_Sections->getTranslation('Name_Section', 'ar') }}">
+                                                                                                       value="{{ $list_Sections->getTranslation('Name_Section', 'fr') }}">
                                                                                             </div>
 
                                                                                             <div class="col">
@@ -139,11 +139,7 @@
                                                                                                        name="Name_Section_En"
                                                                                                        class="form-control"
                                                                                                        value="{{ $list_Sections->getTranslation('Name_Section', 'en') }}">
-                                                                                                <input id="id"
-                                                                                                       type="hidden"
-                                                                                                       name="id"
-                                                                                                       class="form-control"
-                                                                                                       value="{{ $list_Sections->id }}">
+                                                                                                <input id="id" type="hidden" name="id" class="form-control" value="{{ $list_Sections->id }}">
                                                                                             </div>
 
                                                                                         </div>
@@ -188,12 +184,7 @@
                                                                                             <div class="form-check">
 
                                                                                                 @if ($list_Sections->Status === 1)
-                                                                                                    <input
-                                                                                                        type="checkbox"
-                                                                                                        checked
-                                                                                                        class="form-check-input"
-                                                                                                        name="Status"
-                                                                                                        id="exampleCheck1">
+                                                                                                <input type="checkbox" checked class="form-check-input" name="Status" id="exampleCheck1">
                                                                                                 @else
                                                                                                     <input
                                                                                                         type="checkbox"
@@ -208,14 +199,14 @@
                                                                                         </div>
 
 
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button"
-                                                                                            class="btn btn-secondary"
-                                                                                            data-dismiss="modal">{{ trans('Sections_trans.Close') }}</button>
-                                                                                    <button type="submit"
-                                                                                            class="btn btn-danger">{{ trans('Sections_trans.submit') }}</button>
-                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button"
+                                                                                                    class="btn btn-secondary"
+                                                                                                    data-dismiss="modal">{{ trans('Sections_trans.Close') }}</button>
+                                                                                            <button type="submit"
+                                                                                                    class="btn btn-danger">{{ trans('Sections_trans.submit') }}</button>
+                                                                                        </div>
                                                                                 </form>
                                                                             </div>
                                                                         </div>
@@ -266,10 +257,6 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
-
-
-
                                                                 @endforeach
                                                                 </tbody>
                                                             </table>
@@ -284,7 +271,7 @@
                         </div>
                     </div>
 
-                    <!--اضافة قسم جديد -->
+                    <!--Add classe-->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                          aria-labelledby="exampleModalLabel"
                          aria-hidden="true">
@@ -304,8 +291,8 @@
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col">
-                                                <input type="text" name="Name_Section_Ar" class="form-control"
-                                                       placeholder="{{ trans('Sections_trans.Section_name_ar') }}">
+                                                <input type="text" name="Name_Section_Fr" class="form-control"
+                                                       placeholder="{{ trans('Sections_trans.Section_name_Fr') }}">
                                             </div>
 
                                             <div class="col">

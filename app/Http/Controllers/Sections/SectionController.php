@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Sections;
+
 use App\Http\Controllers\Controller;
 use App\Models\Classroom;
 use App\Models\Grade;
@@ -22,8 +24,7 @@ class SectionController extends Controller
 
     $list_Grades = Grade::all();
 
-    return view('pages.Sections.Sections',compact('Grades','list_Grades'));
-
+    return view('pages.Sections.Sections', compact('Grades', 'list_Grades'));
   }
 
   /**
@@ -33,13 +34,14 @@ class SectionController extends Controller
    */
   public function store(StoreSections $request)
   {
+    //return dd($request);
 
     try {
 
       $validated = $request->validated();
       $Sections = new Section();
 
-      $Sections->Name_Section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
+      $Sections->Name_Section = ['fr' => $request->Name_Section_Fr, 'en' => $request->Name_Section_En];
       $Sections->Grade_id = $request->Grade_id;
       $Sections->Class_id = $request->Class_id;
       $Sections->Status = 1;
@@ -47,12 +49,9 @@ class SectionController extends Controller
       toastr()->success(trans('messages.success'));
 
       return redirect()->route('Sections.index');
-  }
-
-  catch (\Exception $e){
+    } catch (\Exception $e) {
       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-  }
-
+    }
   }
 
 
@@ -69,11 +68,11 @@ class SectionController extends Controller
       $validated = $request->validated();
       $Sections = Section::findOrFail($request->id);
 
-      $Sections->Name_Section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
+      $Sections->Name_Section = ['fr' => $request->Name_Section_Fr, 'en' => $request->Name_Section_En];
       $Sections->Grade_id = $request->Grade_id;
       $Sections->Class_id = $request->Class_id;
 
-      if(isset($request->Status)) {
+      if (isset($request->Status)) {
         $Sections->Status = 1;
       } else {
         $Sections->Status = 2;
@@ -83,12 +82,9 @@ class SectionController extends Controller
       toastr()->success(trans('messages.Update'));
 
       return redirect()->route('Sections.index');
-  }
-  catch
-  (\Exception $e) {
+    } catch (\Exception $e) {
       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-  }
-
+    }
   }
 
   /**
@@ -103,16 +99,12 @@ class SectionController extends Controller
     Section::findOrFail($request->id)->delete();
     toastr()->error(trans('messages.Delete'));
     return redirect()->route('Sections.index');
-
   }
 
-  public function getclasses($id)
-    {
-        $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_Class", "id");
+  public function getClasses($id)
+  {
+    $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_Class", "id");
 
-        return $list_classes;
-    }
-
+    return $list_classes;
+  }
 }
-
-?>

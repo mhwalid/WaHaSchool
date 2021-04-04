@@ -9,7 +9,7 @@ return [
     'delete_class' => 'Supprimer la classe',
     'delete_checkbox' => 'Supprimer la sélection',
     'Search_By_Grade' => 'Chercher par nom',
-    'Warning_Grade' => 'هل انت متاكد من عملية الحذف ؟',
+    'Warning_Grade' => 'Êtes-vous sûr de la suppression',
     'submit' => 'submit',
     'required' => 'ce champe est obligatoire ',
     'Name_class' => 'Nom de la classe',
@@ -19,7 +19,7 @@ return [
     'Processes' => 'Processes',
     'Edit' => 'Modifier',
     'Delete' => 'Supprime',
-    'delete_Class_Error' => 'La classe peut pas etre supprimer car elle des sections',
+    'delete_Class_Error' => 'La classe peut pas etre supprimer car elle a des sections',
     'Close' => 'Fermer',
 
 
