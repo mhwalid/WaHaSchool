@@ -12,5 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(NationalitiesTableSeeder::class);
+        $this->call(typebloodtable::class);
     }
 }
